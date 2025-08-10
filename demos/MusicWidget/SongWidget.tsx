@@ -12,6 +12,27 @@ import { FC, RefObject, useEffect, useRef, useState } from "react"
 import WaveForm from "./WaveForm"
 import RotationText from "./RotationText"
 
+export type Lean = "left" | "right" | null
+
+interface Song {
+    id: string
+    title: string
+    artist: string
+    image: string
+}
+
+interface SongWidgetProps {
+    song: Song
+    orderedSongs: string[]
+    previousOrderedSongs: string[]
+    emitSwipe: (direction: Exclude<Lean, null>) => void
+    leaning: Lean
+    setLeaning: (leaning: Lean) => void
+    volume: number
+    muted: boolean
+}
+
+
 const SongWidget: FC<SongWidgetProps> = ({
     song,
     orderedSongs,
