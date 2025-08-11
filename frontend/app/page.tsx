@@ -18,13 +18,45 @@ interface SongTrack {
     duration: string
 }
 
+interface JioSaavnApiItem {
+    album: string
+    album_url: string
+    autoplay: string
+    duration: string
+    e_songid: string
+    has_rbt: string
+    image_url: string
+    label: string
+    label_url: string
+    language: string
+    liked: string
+    map: string
+    music: string
+    origin: string
+    origin_val: string
+    page: number
+    pass_album_ctx: string
+    perma_url: string
+    publish_to_fb: boolean
+    singers: string
+    songid: string
+    starred: string
+    starring: string
+    streaming_source: string | null
+    tiny_url: string
+    title: string
+    twitter_url: string
+    url: string
+    year: string
+}
+
 const Home = () => {
     const [query, setQuery] = useState("")
     const [tracks, setTracks] = useState<SongTrack[]>([])
     const [loading, setLoading] = useState(false)
     const [playTrack, setPlayTrack] = useState<SongTrack | null>(null)
     const [hasSearched, setHasSearched] = useState(false)
-    
+
     const handlePlayTrack = (track: SongTrack) => {
         setPlayTrack(track)
         setTracks([])
@@ -47,17 +79,18 @@ const Home = () => {
             const data = await res.json()
 
             if (Array.isArray(data)) {
-                const mappedTracks: SongTrack[] = data.map((item: any) => ({
-                    songid: item.id,
-                    title: item.song,
-                    singers:
-                        item.primary_artists || item.music || "Unknown Artist",
-                    image_url: item.image,
-                    media_url: item.media_url,
-                    album: item.album || "Unknown Album",
-                    year: item.year || "",
-                    duration: item.duration || "",
-                }))
+                const mappedTracks: SongTrack[] = data.map(
+                    (item: JioSaavnApiItem) => ({
+                        songid: item.songid,
+                        title: item.title,
+                        singers: item.singers || item.music || "Unknown Artist",
+                        image_url: item.image_url,
+                        media_url: item.url,
+                        album: item.album || "Unknown Album",
+                        year: item.year || "",
+                        duration: item.duration || "",
+                    }),
+                )
                 setTracks(mappedTracks)
             } else {
                 setTracks([])

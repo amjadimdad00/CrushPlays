@@ -2,6 +2,7 @@
 
 import React from "react"
 import { Play } from "lucide-react"
+import Image from "next/image"
 
 interface JioSaavnTrack {
     songid: string
@@ -53,9 +54,14 @@ export default function JioSaavnSearch({
                         className="flex items-center gap-4 rounded border p-2 transition-colors hover:bg-gray-50"
                     >
                         <div className="group relative">
-                            <img
-                                src={track.image_url}
+                            <Image
+                                src={
+                                    track.image_url ||
+                                    "https://via.placeholder.com/64"
+                                }
                                 alt={track.title}
+                                width={64}
+                                height={64}
                                 className="h-16 w-16 rounded object-cover"
                                 onError={(e) => {
                                     ;(e.target as HTMLImageElement).src =

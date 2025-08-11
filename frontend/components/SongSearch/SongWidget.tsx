@@ -41,10 +41,11 @@ const SongWidget = ({ playTrack, volume, muted }: SongWidgetProps) => {
     }, [playTrack])
 
     useEffect(() => {
-        if (!audioRef.current) return
+        const audioEl = audioRef.current
+        if (!audioEl) return
 
         if (isActive && !paused) {
-            audioRef.current.play().catch((error) => {
+            audioEl.play().catch((error) => {
                 if (error.name === "NotAllowedError") {
                     setPaused(true)
                     console.error(
@@ -55,15 +56,14 @@ const SongWidget = ({ playTrack, volume, muted }: SongWidgetProps) => {
                 }
             })
         } else {
-            audioRef.current.pause()
+            audioEl.pause()
         }
 
         return () => {
-            if (audioRef.current) {
-                audioRef.current.pause()
-            }
+            audioEl.pause()
         }
     }, [isActive, paused, playTrack])
+
 
     if (!playTrack) return null
 
