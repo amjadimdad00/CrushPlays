@@ -1,11 +1,12 @@
 # 🎵 CrushPlays
 
 CrushPlays is a sleek and modern music streaming web app built with Next.js, TailwindCSS, and Radix UI.
-Upgraded with JioSaavn API integration, it allows you to search, discover, and play millions of songs with a smooth, responsive, and visually appealing interface.
+Currently powered by JioSaavn API, it lets you search for tracks in real time with a smooth, responsive, and visually appealing interface.
+In the future, support for album and artist search is planned.
 
 ## ✨ Features
 
-- 🎧 JioSaavn API Integration – Search for any track, artist, or album in real time
+- 🎧 JioSaavn API Integration – Search for any track in real time (Albums and artists search coming soon!)
 - 📀 Play preloaded music instantly
 - 📱 Fully responsive UI for mobile, tablet, and desktop
 - 🎨 Sleek and accessible UI powered by TailwindCSS + Radix UI
