@@ -6,10 +6,8 @@ import VolumeBar from "@/demos/MusicWidget/VolumeBar"
 export type Lean = "left" | "right" | null
 
 interface SongTrack {
-    songid: string
-    title: string
     singers: string
-    image_url: string
+    image: string
     media_url: string
     album: string
     year: string

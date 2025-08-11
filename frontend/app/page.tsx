@@ -8,46 +8,12 @@ import { AnimatePresence } from "framer-motion"
 import { useState } from "react"
 
 interface SongTrack {
-    songid: string
-    title: string
     singers: string
-    image_url: string
+    image: string
     media_url: string
     album: string
     year: string
     duration: string
-}
-
-interface JioSaavnApiItem {
-    album: string
-    album_url: string
-    autoplay: string
-    duration: string
-    e_songid: string
-    has_rbt: string
-    image_url: string
-    label: string
-    label_url: string
-    language: string
-    liked: string
-    map: string
-    music: string
-    origin: string
-    origin_val: string
-    page: number
-    pass_album_ctx: string
-    perma_url: string
-    publish_to_fb: boolean
-    singers: string
-    songid: string
-    starred: string
-    starring: string
-    streaming_source: string | null
-    tiny_url: string
-    title: string
-    twitter_url: string
-    url: string
-    year: string
 }
 
 const Home = () => {
@@ -79,19 +45,7 @@ const Home = () => {
             const data = await res.json()
 
             if (Array.isArray(data)) {
-                const mappedTracks: SongTrack[] = data.map(
-                    (item: JioSaavnApiItem) => ({
-                        songid: item.songid,
-                        title: item.title,
-                        singers: item.singers || item.music || "Unknown Artist",
-                        image_url: item.image_url,
-                        media_url: item.url,
-                        album: item.album || "Unknown Album",
-                        year: item.year || "",
-                        duration: item.duration || "",
-                    }),
-                )
-                setTracks(mappedTracks)
+                setTracks(data)
             } else {
                 setTracks([])
             }

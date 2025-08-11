@@ -7,10 +7,8 @@ import WaveForm from "@/demos/MusicWidget/WaveForm"
 import RotationText from "@/demos/MusicWidget/RotationText"
 
 interface SongTrack {
-    songid: string
-    title: string
     singers: string
-    image_url: string
+    image: string
     media_url: string
     album: string
     year: string
@@ -64,7 +62,6 @@ const SongWidget = ({ playTrack, volume, muted }: SongWidgetProps) => {
         }
     }, [isActive, paused, playTrack])
 
-
     if (!playTrack) return null
 
     return (
@@ -74,8 +71,8 @@ const SongWidget = ({ playTrack, volume, muted }: SongWidgetProps) => {
         >
             <div className="relative h-full w-full">
                 <Image
-                    src={playTrack.image_url}
-                    alt={`${playTrack.title} by ${playTrack.singers}`}
+                    src={playTrack.image}
+                    alt={`${playTrack.album} by ${playTrack.singers}`}
                     className={cn(
                         "pointer-events-none h-full w-full object-cover transition-opacity duration-150",
                         !isActive && "opacity-50",
@@ -93,7 +90,7 @@ const SongWidget = ({ playTrack, volume, muted }: SongWidgetProps) => {
                             setPaused={setPaused}
                         />
                         <div className="relative flex w-full flex-col items-center justify-center pr-5 -translate-x-2">
-                            <RotationText text={playTrack.title} />
+                            <RotationText text={playTrack.album} />
                             <RotationText
                                 text={playTrack.singers}
                                 className="w-full truncate text-xs font-normal text-zinc-300"

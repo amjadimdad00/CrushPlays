@@ -32,7 +32,6 @@ interface SongWidgetProps {
     muted: boolean
 }
 
-
 const SongWidget: FC<SongWidgetProps> = ({
     song,
     orderedSongs,
@@ -170,6 +169,7 @@ const SongWidget: FC<SongWidgetProps> = ({
                     )}
                     width={300}
                     height={300}
+                    priority
                 />
                 <div className="absolute bottom-0 left-0 h-1/2 w-full bg-gradient-to-t from-black to-transparent">
                     <div className="absolute bottom-0 left-0 flex w-full items-center justify-start gap-4 p-4">
