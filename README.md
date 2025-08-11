@@ -23,7 +23,7 @@ In the future, support for album and artist search is planned.
 **API:** JioSaavn API  
 **Icons:** Lucide React
 
-<!-- <!-- ## 📸 Screenshots -->
+## 📸 Screenshots
 
 ## **Home Page**
 
@@ -36,7 +36,6 @@ In the future, support for album and artist search is planned.
 ## **Now Playing**
 
 ![Now Playing](./screenshots/nowplaying.png)
---- -->
 
 ## 📜 License
 

@@ -72,7 +72,7 @@ const Home = () => {
 
         try {
             const res = await fetch(
-                `http://crushplaysbackend.vercel.app/result/?query=${encodeURIComponent(query)}`,
+                `https://crushplaysbackend.vercel.app/result/?query=${encodeURIComponent(query)}`,
             )
             if (!res.ok) throw new Error("JioSaavn API request failed")
 
