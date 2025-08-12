@@ -41,4 +41,4 @@ In the future, support for album and artist search is planned.
 
 This project is licensed under the MIT License – you are free to use, modify, and distribute.
 
-💙 Built with passion by **![Amjad Imdad](https://linkedin.com/in/amjadimdad)** (Original concept by **![DeveloperRahul](https://github.com/developerrahulofficial)**)
+💙 Built with passion by **[Amjad Imdad](https://linkedin.com/in/amjadimdad)** (Original concept by **[DeveloperRahul](https://github.com/developerrahulofficial)**)
